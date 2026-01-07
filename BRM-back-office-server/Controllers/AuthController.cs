@@ -93,9 +93,13 @@ namespace BRM_back_office_server.Controllers
         [HttpGet("me")]
         public IActionResult Me()
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var email = User.FindFirstValue(ClaimTypes.Email);
+
             return Ok(new
             {
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+                userId,
+                email
             });
         }
     }

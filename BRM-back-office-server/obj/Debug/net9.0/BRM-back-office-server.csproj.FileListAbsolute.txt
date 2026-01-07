@@ -161,3 +161,4 @@ C:\Users\Aalkh\code\BRM-back-office\BRM-back-office-server\bin\Debug\net9.0\Micr
 C:\Users\Aalkh\code\BRM-back-office\BRM-back-office-server\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Aalkh\code\BRM-back-office\BRM-back-office-server\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Aalkh\code\BRM-back-office\BRM-back-office-server\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Aalkh\code\BRM-back-office\BRM-back-office-server\obj\Debug\net9.0\BRM-back-office-server.sourcelink.json

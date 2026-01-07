@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BRM-back-office-server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+845d5e047bef2a6a4ae77bcb12097238aab45ae6")]
 [assembly: System.Reflection.AssemblyProductAttribute("BRM-back-office-server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BRM-back-office-server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
