@@ -1,0 +1,6 @@
+@BRM_back_office_server_HostAddress = http://localhost:5058
+
+GET {{BRM_back_office_server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
