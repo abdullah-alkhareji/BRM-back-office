@@ -13,4 +13,8 @@ export class UserService {
   setUser(user: IUser | null) {
     this.userSignal.set(user);
   }
+
+  clearUser() {
+    this.userSignal.set(null);
+  }
 }

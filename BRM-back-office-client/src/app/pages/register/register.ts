@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../core/auth/auth.service';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
+  selector: 'app-register',
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './login.html',
+  templateUrl: './register.html',
 })
-export class Login {
+export class Register {
   loading = false;
   error: string | null = null;
 
@@ -31,8 +30,8 @@ export class Login {
 
     const { email, password } = this.form.getRawValue();
 
-    this.auth.login(email, password).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
+    this.auth.register(email, password).subscribe({
+      next: () => this.router.navigate(['/login']),
       error: () => {
         this.error = 'Invalid email or password';
         this.loading = false;
