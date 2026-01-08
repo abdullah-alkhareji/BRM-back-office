@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../../auth/auth.service';
-import { Router } from '@angular/router';
+import { AuthService } from '../../core/auth/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { IUser } from '../../interfaces/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,25 +11,18 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.html',
 })
 export class Dashboard implements OnInit {
-  user: { userId: string; email: string } | null = null;
+  user: IUser | null = null;
   error: string | null = null;
 
-  constructor(private http: HttpClient, private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.http.get<any>('https://localhost:7081/api/auth/me').subscribe({
-      next: (res) => {
-        this.user = res;
-      },
-      error: (err) => {
-        if (err.status === 401) {
-          this.auth.logout();
-          this.router.navigate(['/login']);
-        } else {
-          this.error = 'Failed to load user data';
-        }
-      },
-    });
+    const profile = this.route.snapshot.data['profile'] as IUser | null;
+    if (profile) {
+      this.user = profile;
+    } else {
+      this.error = 'Failed to load user data';
+    }
   }
 
   logout() {
