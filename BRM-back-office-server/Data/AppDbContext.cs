@@ -9,6 +9,7 @@ namespace BRM_back_office_server.Data
             : base(options) { }
 
         public DbSet<User> Users => Set<User>();
+        public DbSet<Customer> Customers => Set<Customer>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +27,14 @@ namespace BRM_back_office_server.Data
                 entity.Property(x => x.PasswordHash)
                       .IsRequired();
             });
+
+            modelBuilder.Entity<Customer>(entity =>
+            {
+                entity.HasKey(x => x.CustomerNumber);
+
+                entity.HasIndex(x => x.CustomerNumber).IsUnique();
+            });
+
         }
     }
 

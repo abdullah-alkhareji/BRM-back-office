@@ -40,5 +40,84 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BRM_back_office_server.Controllers.CustomerController",
+    "Method": "GetAll",
+    "RelativePath": "api/Customer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BRM_back_office_server.Controllers.CustomerController",
+    "Method": "Create",
+    "RelativePath": "api/Customer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BRM_back_office_server.Dtos.CreateCustomerRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BRM_back_office_server.Controllers.CustomerController",
+    "Method": "GetById",
+    "RelativePath": "api/Customer/{customerNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerNumber",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BRM_back_office_server.Controllers.CustomerController",
+    "Method": "Update",
+    "RelativePath": "api/Customer/{customerNumber}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerNumber",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "BRM_back_office_server.Dtos.UpdateCustomerRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BRM_back_office_server.Controllers.CustomerController",
+    "Method": "Delete",
+    "RelativePath": "api/Customer/{customerNumber}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerNumber",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

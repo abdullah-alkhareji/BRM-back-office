@@ -3,6 +3,7 @@ using System;
 using BRM_back_office_server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BRM_back_office_server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260108232144_AddCustomer")]
+    partial class AddCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.11");
@@ -40,7 +43,7 @@ namespace BRM_back_office_server.Migrations
                     b.HasIndex("CustomerNumber")
                         .IsUnique();
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("BRM_back_office_server.Models.User", b =>
