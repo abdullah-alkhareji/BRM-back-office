@@ -1,3 +1,5 @@
+// src/app/core/auth/auth.service.ts
+
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +14,6 @@ import { AuthRequest, AuthResponse } from '../../interfaces/auth';
 })
 export class AuthService extends BaseService {
   private readonly API = `${environment.apiBaseUrl}/auth`;
-  // private readonly API =  'https://localhost:7081/api/auth';
 
   constructor(private http: HttpClient, private router: Router, private userService: UserService) {
     super(http);
@@ -22,6 +23,11 @@ export class AuthService extends BaseService {
     return this.post<AuthResponse, AuthRequest>(`${this.API}/login`, { email, password }).pipe(
       tap((res) => {
         localStorage.setItem('access_token', res.accessToken);
+      }),
+      tap(() => {
+        this.getMe().subscribe((user) => {
+          this.userService.setUser(user as any);
+        });
       })
     );
   }
@@ -35,11 +41,16 @@ export class AuthService extends BaseService {
     this.userService.clearUser();
   }
 
+  getMe() {
+    return this.http.get(`${this.API}/me`);
+  }
+
   get token(): string | null {
     return localStorage.getItem('access_token');
   }
 
   isLoggedIn(): boolean {
+    console.log(this.token);
     return !!this.token;
   }
 }

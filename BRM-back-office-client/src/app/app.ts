@@ -1,6 +1,7 @@
+// src/app/app.ts
+
 import { Component, signal } from '@angular/core';
 import { AppLayout } from './components/layouts/app-layout/app-layout';
-
 @Component({
   selector: 'app-root',
   imports: [AppLayout],

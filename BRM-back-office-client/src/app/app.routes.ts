@@ -1,5 +1,7 @@
+// src/app/app.routes.ts
+
 import { Routes } from '@angular/router';
-import { profileResolver } from './core/resolvers/profile.resolver';
+import { AuthGuard } from './core/auth/auth.guard';
 
 export const routes: Routes = [
   {
@@ -12,8 +14,8 @@ export const routes: Routes = [
   },
   {
     path: '',
-    loadComponent: () => import('./pages/dashboard/dashboard').then((m) => m.Dashboard),
-    resolve: { profile: profileResolver },
+    loadComponent: () => import('./pages/customers/customers').then((m) => m.Customers),
+    canActivate: [AuthGuard],
   },
   {
     path: '**',

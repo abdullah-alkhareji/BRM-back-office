@@ -1,8 +1,32 @@
-import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { CustomersService } from './../../services/customers.service';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './customers.html',
 })
-export class Customers {}
+export class Customers implements OnInit {
+  title = 'Customers';
+  desc = 'List of customers';
+  private customersService = inject(CustomersService);
+  private router = inject(Router);
+
+  customers = this.customersService.customers;
+
+  ngOnInit() {
+    if (this.customers().length === 0) {
+      this.customersService.getAllCustomers().subscribe();
+    }
+  }
+
+  navigateToAddCustomer() {
+    this.router.navigate(['/add-customer']);
+  }
+
+  navigateToEditCustomer(customerNumber: number) {
+    this.router.navigate([`/edit-customer/${customerNumber}`]);
+  }
+}

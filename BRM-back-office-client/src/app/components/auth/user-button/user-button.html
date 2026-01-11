@@ -1,14 +1,18 @@
-@if(user()) {
+<!-- /src/app/components/auth/user-button/user-button.html -->
+
+@if (user()) {
 <div class="p-2 border border-gray-300 rounded-3xl bg-gray-200 flex items-center gap-2">
   <div
     class="bg-gray-50 rounded-full border-gray-300 border w-8 h-8 flex items-center justify-center font-bold"
   >
     {{ user()?.email?.charAt(0)?.toUpperCase() }}
   </div>
+
   <div class="pe-2">
     <p class="text-xs capitalize text-gray-700">welcome,</p>
     <p class="text-sm font-medium">{{ user()?.email }}</p>
   </div>
+
   <button
     class="rounded-full bg-red-600 text-white hover:bg-gray-300 transition flex items-center justify-center size-9 text-sm"
     (click)="logout()"

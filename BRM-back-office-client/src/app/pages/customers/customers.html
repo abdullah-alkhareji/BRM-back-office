@@ -1,1 +1,37 @@
-<p>customers works!</p>
+<div class="container mx-auto">
+  <div class="mb-4 flex justify-between items-center">
+    <div class="">
+      <h1 class="text-2xl font-bold">{{ title }}</h1>
+      <p class="text-xs text-gray-600 mb-4">{{ desc }}</p>
+    </div>
+    <button
+      class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+      (click)="navigateToAddCustomer()"
+    >
+      Add Customer
+    </button>
+  </div>
+
+  <div class="w-full border border-gray-300 rounded-2xl p-0.5">
+    <table class="w-full">
+      <thead>
+        <tr class="space-x-2">
+          <th class="text-left p-2 bg-gray-300 rounded-tl-xl">Customer Number</th>
+          <th class="text-left p-2 bg-gray-300">Customer Name</th>
+          <th class="text-left p-2 bg-gray-300">Date of Birth</th>
+          <th class="text-left p-2 bg-gray-300 rounded-tr-xl">Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of customers(); track c.customerNumber) {
+        <tr class="border-t border-gray-200 hover:bg-gray-100">
+          <td class="p-2">{{ c.customerNumber }}</td>
+          <td class="p-2">{{ c.customerName }}</td>
+          <td class="p-2">{{ c.dateOfBirth | date : 'dd/MM/yyyy' }}</td>
+          <td class="p-2">{{ c.gender }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
