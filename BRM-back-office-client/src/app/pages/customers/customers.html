@@ -19,7 +19,8 @@
           <th class="text-left p-2 bg-gray-300 rounded-tl-xl">Customer Number</th>
           <th class="text-left p-2 bg-gray-300">Customer Name</th>
           <th class="text-left p-2 bg-gray-300">Date of Birth</th>
-          <th class="text-left p-2 bg-gray-300 rounded-tr-xl">Gender</th>
+          <th class="text-left p-2 bg-gray-300">Gender</th>
+          <th class="text-left p-2 bg-gray-300 rounded-tr-xl">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -29,6 +30,20 @@
           <td class="p-2">{{ c.customerName }}</td>
           <td class="p-2">{{ c.dateOfBirth | date : 'dd/MM/yyyy' }}</td>
           <td class="p-2">{{ c.gender }}</td>
+          <td class="p-2">
+            <button
+              class="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600 transition mr-2"
+              (click)="navigateToEditCustomer(c.customerNumber)"
+            >
+              Edit
+            </button>
+            <button
+              class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition"
+              (click)="deleteCustomer(c.customerNumber)"
+            >
+              Delete
+            </button>
+          </td>
         </tr>
         }
       </tbody>

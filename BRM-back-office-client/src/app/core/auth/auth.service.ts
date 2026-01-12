@@ -50,7 +50,6 @@ export class AuthService extends BaseService {
   }
 
   isLoggedIn(): boolean {
-    console.log(this.token);
     return !!this.token;
   }
 }

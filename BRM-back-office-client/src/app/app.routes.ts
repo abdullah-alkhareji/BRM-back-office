@@ -16,6 +16,17 @@ export const routes: Routes = [
     path: '',
     loadComponent: () => import('./pages/customers/customers').then((m) => m.Customers),
     canActivate: [AuthGuard],
+    pathMatch: 'full',
+  },
+  {
+    path: 'add-customer',
+    loadComponent: () => import('./pages/add-customer/add-customer').then((m) => m.AddCustomer),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-customer/:customerNumber',
+    loadComponent: () => import('./pages/edit-customer/edit-customer').then((m) => m.EditCustomer),
+    canActivate: [AuthGuard],
   },
   {
     path: '**',

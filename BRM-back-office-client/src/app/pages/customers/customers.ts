@@ -29,4 +29,15 @@ export class Customers implements OnInit {
   navigateToEditCustomer(customerNumber: number) {
     this.router.navigate([`/edit-customer/${customerNumber}`]);
   }
+
+  deleteCustomer(customerNumber: number) {
+    this.customersService.deleteCustomer(customerNumber).subscribe({
+      next: () => {
+        console.log(`Customer ${customerNumber} deleted successfully`);
+      },
+      error: (error) => {
+        console.error(`Error deleting customer ${customerNumber}`, error);
+      },
+    });
+  }
 }

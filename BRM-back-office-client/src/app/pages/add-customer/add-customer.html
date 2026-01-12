@@ -1,0 +1,55 @@
+<div class="container mx-auto">
+  <h1 class="text-2xl font-bold">Add Customer</h1>
+  <p class="text-xs mb-4 text-gray-600">{{ desc }}</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label for="customerName" class="block text-sm font-medium text-gray-700"
+        >Customer Name</label
+      >
+      <input
+        type="text"
+        id="customerName"
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+        formControlName="customerName"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="dateOfBirth" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+      <input
+        type="date"
+        id="dateOfBirth"
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+        formControlName="dateOfBirth"
+        [max]="today"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+      <select
+        id="gender"
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+        formControlName="gender"
+      >
+        <option value="" disabled selected>Select Gender</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+    </div>
+    @if(error()){
+    <div class="mb-4 text-red-500">{{ error() }}</div>
+    }
+    <button
+      type="submit"
+      class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+    >
+      Save Customer
+    </button>
+    <button
+      type="button"
+      class="ml-2 bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition"
+      (click)="navigateToCustomers()"
+    >
+      Cancel
+    </button>
+  </form>
+</div>
